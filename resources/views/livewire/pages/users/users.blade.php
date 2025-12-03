@@ -10,7 +10,10 @@
             </p>
         </div>
 
-        <flux:button icon="plus" wire:click="$dispatch('openCreateUserModal')">
+        <flux:button
+            variant="primary"
+            icon="plus"
+            wire:click="$dispatch('openCreateUserModal')">
             Novo usuário
         </flux:button>
     </div>
@@ -45,43 +48,44 @@
             </thead>
             <tbody class="bg-white dark:bg-zinc-800 divide-y divide-zinc-200 dark:divide-zinc-700">
                 @forelse ($users as $user)
-                    <tr>
-                        <td class="px-4 py-3 text-sm text-zinc-900 dark:text-zinc-50">
-                            {{ $user->name }}
-                        </td>
-                        <td class="px-4 py-3 text-sm text-zinc-600 dark:text-zinc-300">
-                            {{ $user->email }}
-                        </td>
-                        <td class="px-4 py-3 text-sm text-zinc-500 dark:text-zinc-400">
-                            {{ $user->created_at?->format('d/m/Y H:i') }}
-                        </td>
-                        <td class="px-4 py-3 text-sm text-right">
-                            <div class="inline-flex items-center gap-2">
-                                <flux:button
-                                    size="xs"
-                                    variant="ghost"
-                                    icon="pencil-square"
-                                    wire:click="$dispatch('openEditUserModal', { id: @js($user->id) })">
-                                    Editar
-                                </flux:button>
+                <tr>
+                    <td class="px-4 py-3 text-sm text-zinc-900 dark:text-zinc-50">
+                        {{ $user->name }}
+                    </td>
+                    <td class="px-4 py-3 text-sm text-zinc-600 dark:text-zinc-300">
+                        {{ $user->email }}
+                    </td>
+                    <td class="px-4 py-3 text-sm text-zinc-500 dark:text-zinc-400">
+                        {{ $user->created_at?->format('d/m/Y H:i') }}
+                    </td>
+                    <td class="px-4 py-3 text-sm text-right">
+                        <div class="inline-flex items-center gap-2">
+                            <flux:button
+                                size="xs"
+                                variant="primary"
+                                color="amber"
+                                icon="pencil-square"
+                                wire:click="$dispatch('openEditUserModal', { id: @js($user->id) })">
+                                Editar
+                            </flux:button>
 
-                                <flux:button
-                                    size="xs"
-                                    variant="ghost"
-                                    color="red"
-                                    icon="trash"
-                                    wire:click="$dispatch('confirmDeleteUser', { id: @js($user->id) })">
-                                    Excluir
-                                </flux:button>
-                            </div>
-                        </td>
-                    </tr>
+                            <flux:button
+                                size="xs"
+                                variant="primary"
+                                color="red"
+                                icon="trash"
+                                wire:click="$dispatch('confirmDeleteUser', { id: @js($user->id) })">
+                                Excluir
+                            </flux:button>
+                        </div>
+                    </td>
+                </tr>
                 @empty
-                    <tr>
-                        <td colspan="4" class="px-4 py-6 text-center text-sm text-zinc-500 dark:text-zinc-400">
-                            Nenhum usuário encontrado.
-                        </td>
-                    </tr>
+                <tr>
+                    <td colspan="4" class="px-4 py-6 text-center text-sm text-zinc-500 dark:text-zinc-400">
+                        Nenhum usuário encontrado.
+                    </td>
+                </tr>
                 @endforelse
             </tbody>
         </table>
