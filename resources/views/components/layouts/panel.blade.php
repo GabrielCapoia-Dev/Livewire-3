@@ -64,8 +64,8 @@
         {{-- Perfil / Tema - Desktop --}}
         <flux:dropdown position="top" align="start" class="max-lg:hidden">
             <flux:sidebar.profile
-                avatar="https://fluxui.dev/img/demo/user.png"
-                name="Olivia Martin" />
+                avatar="https://avatars.githubusercontent.com/u/135331760?s=400&u=75b05627586f337fae80dbb5730e8052f75403fe&v=4"
+                name="Gabriel Capoia" />
 
             <flux:menu>
                 <flux:radio.group x-data variant="segmented" x-model="$flux.appearance">
