@@ -1,8 +1,15 @@
 <?php
 
 use App\Livewire\Dashboard;
+use App\Livewire\Pages\Users\Users;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('layouts.panel');
+    return redirect()->route('dashboard');
 });
+
+Route::get('/dashboard', Dashboard::class)
+    ->name('dashboard');
+
+Route::get('/users', Users::class)
+    ->name('users.index');

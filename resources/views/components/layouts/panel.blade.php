@@ -21,18 +21,15 @@
     <flux:sidebar
         sticky
         collapsible
-        class="bg-zinc-50 dark:bg-zinc-900 border-r border-zinc-200 dark:border-zinc-700"
-    >
+        class="bg-zinc-50 dark:bg-zinc-900 border-r border-zinc-200 dark:border-zinc-700">
         <flux:sidebar.header>
             <flux:sidebar.brand
                 href="#"
                 logo="https://fluxui.dev/img/demo/logo.png"
                 logo:dark="https://fluxui.dev/img/demo/dark-mode-logo.png"
-                name="Acme Inc."
-            />
+                name="Acme Inc." />
             <flux:sidebar.collapse
-                class="in-data-flux-sidebar-on-desktop:not-in-data-flux-sidebar-collapsed-desktop:-mr-2"
-            />
+                class="in-data-flux-sidebar-on-desktop:not-in-data-flux-sidebar-collapsed-desktop:-mr-2" />
         </flux:sidebar.header>
 
         <flux:sidebar.nav>
@@ -40,8 +37,7 @@
             <flux:sidebar.item
                 icon="home"
                 href="{{ route('dashboard') }}"
-                :current="request()->routeIs('dashboard')"
-            >
+                :current="request()->routeIs('dashboard')">
                 Dashboard
             </flux:sidebar.item>
 
@@ -49,17 +45,10 @@
             <flux:sidebar.item
                 icon="users"
                 href="{{ route('users.index') }}"
-                :current="request()->routeIs('users.*')"
-            >
+                :current="request()->routeIs('users.*')">
                 Usuários
             </flux:sidebar.item>
 
-            {{-- Exemplo de grupo --}}
-            <flux:sidebar.group expandable icon="star" heading="Exemplo de Grupo" class="grid">
-                <flux:sidebar.item href="#">1</flux:sidebar.item>
-                <flux:sidebar.item href="#">2</flux:sidebar.item>
-                <flux:sidebar.item href="#">3</flux:sidebar.item>
-            </flux:sidebar.group>
         </flux:sidebar.nav>
 
         <flux:sidebar.spacer />
@@ -70,8 +59,7 @@
         <flux:dropdown position="top" align="start" class="max-lg:hidden">
             <flux:sidebar.profile
                 avatar="https://fluxui.dev/img/demo/user.png"
-                name="Olivia Martin"
-            />
+                name="Olivia Martin" />
 
             <flux:menu>
                 <flux:radio.group x-data variant="segmented" x-model="$flux.appearance">
@@ -95,11 +83,9 @@
         <flux:spacer />
 
         <flux:dropdown position="top" align="start">
-            {{-- Tinha um typo aqui: <flux:.profile ...> --}}
             <flux:profile
                 avatar="https://fluxui.dev/img/demo/user.png"
-                name="Olivia Martin"
-            />
+                name="Olivia Martin" />
 
             <flux:menu>
                 <flux:radio.group x-data variant="segmented" x-model="$flux.appearance">
@@ -116,7 +102,7 @@
         </flux:dropdown>
     </flux:header>
 
-    {{-- AQUI entram as páginas (SPA via Livewire) --}}
+    {{-- AQUI entram as páginas (Livewire full-page) --}}
     <flux:main>
         {{ $slot }}
     </flux:main>
