@@ -41,13 +41,19 @@
                 Dashboard
             </flux:sidebar.item>
 
-            {{-- Usuários --}}
-            <flux:sidebar.item
-                icon="users"
-                href="{{ route('users.index') }}"
-                :current="request()->routeIs('users.*')">
-                Usuários
-            </flux:sidebar.item>
+            <flux:sidebar.group expandable icon="key" heading="Controle de Acesso" class="grid">
+
+                {{-- Usuários --}}
+                <flux:sidebar.item
+                    icon="users"
+                    href="{{ route('users.index') }}"
+                    :current="request()->routeIs('users.*')">
+                    Usuários
+                </flux:sidebar.item>
+
+            </flux:sidebar.group>
+
+
 
         </flux:sidebar.nav>
 
